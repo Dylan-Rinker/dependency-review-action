@@ -80,9 +80,24 @@ function renderSeverity(
   return `${styles.color[color].open}(${severity} severity)${styles.color[color].close}`
 }
 
-function summary(): void {
-  console.log(`test`)
+async function createSummary(): Promise<void> {
+  await core.summary
+    .addHeading('Dependency review')
+    .addTable([
+      [
+        {data: 'File', header: true},
+        {data: 'Result', header: true}
+      ],
+      ['foo.js', 'Pass ✅'],
+      ['bar.js', 'Fail ❌'],
+      ['test.js', 'Pass ✅']
+    ])
+    .addLink(
+      'Dependency review',
+      'https://github.blog/2022-05-09-supercharging-github-actions-with-job-summaries/'
+    )
+    .write()
 }
 
 run()
-summary()
+createSummary()

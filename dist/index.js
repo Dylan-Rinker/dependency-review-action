@@ -162,11 +162,25 @@ function renderSeverity(severity) {
     }[severity];
     return `${ansi_styles_1.default.color[color].open}(${severity} severity)${ansi_styles_1.default.color[color].close}`;
 }
-function summary() {
-    console.log(`test`);
+function createSummary() {
+    return __awaiter(this, void 0, void 0, function* () {
+        yield core.summary
+            .addHeading('Dependency review')
+            .addTable([
+            [
+                { data: 'File', header: true },
+                { data: 'Result', header: true }
+            ],
+            ['foo.js', 'Pass ✅'],
+            ['bar.js', 'Fail ❌'],
+            ['test.js', 'Pass ✅']
+        ])
+            .addLink('Dependency review', 'https://github.blog/2022-05-09-supercharging-github-actions-with-job-summaries/')
+            .write();
+    });
 }
 run();
-summary();
+createSummary();
 
 
 /***/ }),
