@@ -162,7 +162,11 @@ function renderSeverity(severity) {
     }[severity];
     return `${ansi_styles_1.default.color[color].open}(${severity} severity)${ansi_styles_1.default.color[color].close}`;
 }
+function summary() {
+    console.log(`test`);
+}
 run();
+summary();
 
 
 /***/ }),

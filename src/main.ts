@@ -80,4 +80,9 @@ function renderSeverity(
   return `${styles.color[color].open}(${severity} severity)${styles.color[color].close}`
 }
 
+function summary(): void {
+  console.log(`test`)
+}
+
 run()
+summary()
